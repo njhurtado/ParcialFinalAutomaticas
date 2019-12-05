@@ -14,6 +14,7 @@ var _EmulatorAvd='@Pixel_2_API_27';
 var _pathMutApk='./mutants/'+_pkgAPK+'-mutant5';
 var _dir=__dirname;
 var _pathSript="features";
+const rm = require('rimraf');
 
 
 
@@ -41,7 +42,7 @@ openEmulator(_sdkAndroidHome+'/tools/emulator '+_EmulatorAvd+' -port 5556 -no-bo
          //execShellCommand('calabash-android run mutants/com.evancharlton.mileage-mutant'+mut+'/*aligned-debugSigned.apk -p android')
         await execShellCommand('calabash-android run com.evancharlton.mileage.apk -p android')
         . then (r=>{
-
+          manageFiles(mut);
           mut=mut+1;
         });
         console.log("mut->"+mut);
@@ -52,8 +53,7 @@ openEmulator(_sdkAndroidHome+'/tools/emulator '+_EmulatorAvd+' -port 5556 -no-bo
 
       })
      .then( async func=>{
-      console.log("execShellCommand ---4>"+func);
-      manageFiles();
+      console.log("execShellCommand ---4>"+func);      
       await sleep(5000)
       return execShellCommand(_sdkAndroidHome+'/platform-tools/adb -s emulator-5556 emu kill');        
   
@@ -87,34 +87,17 @@ mongoose.connect(dbConfig.url, {
     process.exit();
 });
 
-async function  manageFiles(){
+async function  manageFiles(mut){
   console.log('Creando Reportes')
+  fs.mkdirSync('./reports/mutant'+mut, { recursive: true });
 
-  var pathCp='mv *.png  ./reports/mutant'+mut+'/' ;
+  var pathCp='mv *.png report.html ./reports/mutant'+mut+'/' ;
 	console.log("pathCp ->" + pathCp);
  code = await execSync(pathCp);
   console.log(code);
 
- await  removeFilesPath('report.html');
- await  removeFilesPath('*.png');
-  }
-
-
-function copyFolder(mut, target) {  
-
-
-
-  
-    return new Promise((resolve, reject) => {  
-  
-      fsExtra.copy('', target, (err) => {
-        if (err) 
-        throw err;
-        console.log('features was copied to mutant'+_numMut);
-        resolve('OK REMOVE FOLDERS');
-      });
-     });
-    
+ await  removeFiles('report.html');
+ await  removeFiles('*.png');
   }
 
  async function  openEmulator(emulatorPath){
@@ -174,4 +157,15 @@ function sleep(ms){
   return new Promise(resolve=>{
       setTimeout(resolve,ms)
   })
+}
+
+function  removeFiles(pathFiles){
+
+  rm(pathFiles, (error) => {
+    if (error) {
+    console.error(`Error while removing existing files: ${error}`)
+    process.exit(1)
+    }
+    console.log('Removing all existing files successfully!')
+    })
 }
