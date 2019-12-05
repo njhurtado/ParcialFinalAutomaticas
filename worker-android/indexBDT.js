@@ -53,6 +53,7 @@ openEmulator(_sdkAndroidHome+'/tools/emulator '+_EmulatorAvd+' -port 5556 -no-bo
       })
      .then( async func=>{
       console.log("execShellCommand ---4>"+func);
+      manageFiles();
       await sleep(5000)
       return execShellCommand(_sdkAndroidHome+'/platform-tools/adb -s emulator-5556 emu kill');        
   
@@ -86,7 +87,35 @@ mongoose.connect(dbConfig.url, {
     process.exit();
 });
 
+async function  manageFiles(){
+  console.log('Creando Reportes')
 
+  var pathCp='mv *.png  ./reports/mutant'+mut+'/' ;
+	console.log("pathCp ->" + pathCp);
+ code = await execSync(pathCp);
+  console.log(code);
+
+ await  removeFilesPath('report.html');
+ await  removeFilesPath('*.png');
+  }
+
+
+function copyFolder(mut, target) {  
+
+
+
+  
+    return new Promise((resolve, reject) => {  
+  
+      fsExtra.copy('', target, (err) => {
+        if (err) 
+        throw err;
+        console.log('features was copied to mutant'+_numMut);
+        resolve('OK REMOVE FOLDERS');
+      });
+     });
+    
+  }
 
  async function  openEmulator(emulatorPath){
     await exec(_sdkAndroidHome+'/platform-tools/adb -s emulator-5556 emu kill',(error, stdout, stderr) => {
