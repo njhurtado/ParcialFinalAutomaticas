@@ -1,0 +1,180 @@
+  bash arg: -p
+  bash arg: com.evancharlton.mileage
+  bash arg: -s
+  bash arg: 1234
+  bash arg: -v
+  bash arg: 500
+:Monkey: seed=1234 count=500
+:AllowPackage: com.evancharlton.mileage
+:IncludeCategory: android.intent.category.LAUNCHER
+:IncludeCategory: android.intent.category.MONKEY
+// Event percentages:
+//   0: 15.0%
+//   1: 10.0%
+//   2: 2.0%
+//   3: 15.0%
+//   4: -0.0%
+//   5: -0.0%
+//   6: 25.0%
+//   7: 15.0%
+//   8: 2.0%
+//   9: 2.0%
+//   10: 1.0%
+//   11: 13.0%
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.evancharlton.mileage/.Mileage;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.evancharlton.mileage/.Mileage } in package com.evancharlton.mileage
+:Sending Touch (ACTION_DOWN): 0:(1013.0,570.0)
+:Sending Touch (ACTION_UP): 0:(1080.0,545.3477)
+:Sending Touch (ACTION_DOWN): 0:(917.0,1346.0)
+:Sending Touch (ACTION_UP): 0:(905.29736,1332.8597)
+:Sending Flip keyboardOpen=false
+Got IOException performing flipjava.io.FileNotFoundException: /dev/input/event0: open failed: EACCES (Permission denied)
+    // Injection Failed
+:Sending Touch (ACTION_DOWN): 0:(542.0,411.0)
+:Sending Touch (ACTION_UP): 0:(497.32986,452.28656)
+:Sending Touch (ACTION_DOWN): 0:(316.0,1065.0)
+:Sending Touch (ACTION_UP): 0:(325.997,1064.962)
+:Sending Touch (ACTION_DOWN): 0:(68.0,473.0)
+:Sending Touch (ACTION_UP): 0:(67.60402,463.8778)
+:Sending Touch (ACTION_DOWN): 0:(201.0,46.0)
+:Sending Touch (ACTION_UP): 0:(201.72897,47.109657)
+    // Rejecting start of Intent { act=android.settings.HARD_KEYBOARD_SETTINGS cmp=com.android.settings/.Settings$PhysicalKeyboardActivity } in package com.android.settings
+:Sending Trackball (ACTION_MOVE): 0:(4.0,-4.0)
+:Sending Touch (ACTION_DOWN): 0:(454.0,1429.0)
+:Sending Touch (ACTION_UP): 0:(450.7236,1427.9164)
+:Sending Touch (ACTION_DOWN): 0:(204.0,53.0)
+:Sending Touch (ACTION_UP): 0:(234.65788,116.13393)
+:Sending Touch (ACTION_DOWN): 0:(623.0,604.0)
+:Sending Touch (ACTION_UP): 0:(613.35583,609.8383)
+:Sending Touch (ACTION_DOWN): 0:(1005.0,474.0)
+:Sending Touch (ACTION_UP): 0:(993.80426,479.43143)
+:Sending Touch (ACTION_DOWN): 0:(275.0,1560.0)
+:Sending Touch (ACTION_UP): 0:(294.11566,1559.343)
+:Sending Touch (ACTION_DOWN): 0:(459.0,188.0)
+:Sending Touch (ACTION_UP): 0:(478.0084,191.53496)
+:Sending Trackball (ACTION_MOVE): 0:(-1.0,1.0)
+:Sending Touch (ACTION_DOWN): 0:(991.0,1670.0)
+:Sending Touch (ACTION_UP): 0:(1000.56036,1655.1617)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,2.0)
+    //[calendar_time:2019-12-01 20:18:50.897  system_uptime:3788370]
+    // Sending event #100
+:Sending Touch (ACTION_DOWN): 0:(454.0,791.0)
+:Sending Touch (ACTION_UP): 0:(446.1113,786.65265)
+:Sending Touch (ACTION_DOWN): 0:(203.0,1592.0)
+:Sending Touch (ACTION_UP): 0:(192.5963,1597.4073)
+:Sending Touch (ACTION_DOWN): 0:(988.0,1377.0)
+:Sending Touch (ACTION_UP): 0:(1080.0,1304.6179)
+:Sending Trackball (ACTION_MOVE): 0:(-4.0,-5.0)
+    // Rejecting start of Intent { act=android.intent.action.CALL_BUTTON cmp=com.google.android.dialer/com.android.dialer.main.impl.MainActivity } in package com.google.android.dialer
+:Sending Touch (ACTION_DOWN): 0:(1056.0,137.0)
+:Sending Touch (ACTION_UP): 0:(1060.2021,132.98071)
+:Sending Touch (ACTION_DOWN): 0:(61.0,1787.0)
+:Sending Touch (ACTION_UP): 0:(60.40578,1788.1393)
+:Sending Touch (ACTION_DOWN): 0:(409.0,786.0)
+:Sending Touch (ACTION_UP): 0:(440.72336,761.1509)
+:Sending Touch (ACTION_DOWN): 0:(421.0,1004.0)
+:Sending Touch (ACTION_UP): 0:(486.90466,1078.9443)
+:Sending Touch (ACTION_DOWN): 0:(1017.0,858.0)
+:Sending Touch (ACTION_UP): 0:(1006.97394,857.8228)
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.HOME] cmp=com.google.android.apps.nexuslauncher/.NexusLauncherActivity } in package com.google.android.apps.nexuslauncher
+:Sending Touch (ACTION_DOWN): 0:(967.0,1543.0)
+:Sending Touch (ACTION_UP): 0:(971.0433,1555.1349)
+:Sending Trackball (ACTION_MOVE): 0:(1.0,-4.0)
+    //[calendar_time:2019-12-01 20:18:52.010  system_uptime:3789483]
+    // Sending event #200
+:Sending Touch (ACTION_DOWN): 0:(973.0,791.0)
+:Sending Touch (ACTION_UP): 0:(972.02905,792.3235)
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.evancharlton.mileage/.Mileage;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.evancharlton.mileage/.Mileage } in package com.evancharlton.mileage
+:Sending Touch (ACTION_DOWN): 0:(1054.0,816.0)
+:Sending Touch (ACTION_UP): 0:(1053.1233,810.6805)
+:Sending Touch (ACTION_DOWN): 0:(629.0,418.0)
+:Sending Touch (ACTION_UP): 0:(594.05835,447.66562)
+:Sending Touch (ACTION_DOWN): 0:(710.0,25.0)
+:Sending Touch (ACTION_UP): 0:(700.9142,33.827793)
+    // Injection Failed
+:Sending Touch (ACTION_DOWN): 0:(311.0,1611.0)
+:Sending Touch (ACTION_UP): 0:(370.62973,1595.328)
+:Sending Trackball (ACTION_MOVE): 0:(3.0,3.0)
+    // activityResuming(com.evancharlton.mileage)
+:Sending Touch (ACTION_DOWN): 0:(1023.0,729.0)
+:Sending Touch (ACTION_UP): 0:(1035.0996,720.50244)
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.evancharlton.mileage/.Mileage;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.evancharlton.mileage/.Mileage } in package com.evancharlton.mileage
+:Sending Touch (ACTION_DOWN): 0:(490.0,692.0)
+:Sending Touch (ACTION_UP): 0:(476.90814,761.0709)
+:Sending Flip keyboardOpen=true
+Got IOException performing flipjava.io.FileNotFoundException: /dev/input/event0: open failed: EACCES (Permission denied)
+    // Injection Failed
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,3.0)
+:Sending Touch (ACTION_DOWN): 0:(670.0,377.0)
+:Sending Touch (ACTION_UP): 0:(653.3076,367.06097)
+:Sending Touch (ACTION_DOWN): 0:(927.0,64.0)
+:Sending Touch (ACTION_UP): 0:(934.649,62.513893)
+:Sending Touch (ACTION_DOWN): 0:(642.0,1766.0)
+:Sending Touch (ACTION_UP): 0:(653.63873,1770.3759)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,-3.0)
+:Sending Touch (ACTION_DOWN): 0:(685.0,571.0)
+    //[calendar_time:2019-12-01 20:18:52.804  system_uptime:3790278]
+    // Sending event #300
+:Sending Touch (ACTION_UP): 0:(774.20996,587.6854)
+:Sending Touch (ACTION_DOWN): 0:(795.0,1612.0)
+:Sending Touch (ACTION_UP): 0:(792.9084,1620.0405)
+:Sending Touch (ACTION_DOWN): 0:(688.0,1592.0)
+:Sending Touch (ACTION_UP): 0:(687.83795,1589.6396)
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,-3.0)
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.evancharlton.mileage/.Mileage;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.evancharlton.mileage/.Mileage } in package com.evancharlton.mileage
+:Sending Touch (ACTION_DOWN): 0:(623.0,1027.0)
+:Sending Touch (ACTION_UP): 0:(627.11523,1025.9753)
+:Sending Touch (ACTION_DOWN): 0:(994.0,102.0)
+:Sending Touch (ACTION_UP): 0:(997.0315,98.18328)
+:Sending Touch (ACTION_DOWN): 0:(270.0,1460.0)
+:Sending Touch (ACTION_UP): 0:(266.09338,1472.1316)
+:Sending Trackball (ACTION_MOVE): 0:(1.0,0.0)
+:Sending Trackball (ACTION_UP): 0:(0.0,0.0)
+:Sending Touch (ACTION_DOWN): 0:(877.0,14.0)
+:Sending Touch (ACTION_UP): 0:(937.7587,18.842226)
+:Sending Touch (ACTION_DOWN): 0:(393.0,882.0)
+:Sending Touch (ACTION_UP): 0:(404.51038,880.2979)
+:Sending Trackball (ACTION_MOVE): 0:(1.0,-5.0)
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.HOME] cmp=com.google.android.apps.nexuslauncher/.NexusLauncherActivity } in package com.google.android.apps.nexuslauncher
+    // Rejecting start of Intent { act=android.settings.HARD_KEYBOARD_SETTINGS cmp=com.android.settings/.Settings$PhysicalKeyboardActivity } in package com.android.settings
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.evancharlton.mileage/.Mileage;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.evancharlton.mileage/.Mileage } in package com.evancharlton.mileage
+:Sending Trackball (ACTION_MOVE): 0:(1.0,1.0)
+:Sending Touch (ACTION_DOWN): 0:(698.0,981.0)
+:Sending Touch (ACTION_UP): 0:(697.1804,993.9126)
+:Sending Trackball (ACTION_MOVE): 0:(1.0,3.0)
+    //[calendar_time:2019-12-01 20:18:53.349  system_uptime:3790823]
+    // Sending event #400
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,3.0)
+:Sending Touch (ACTION_DOWN): 0:(1002.0,564.0)
+:Sending Touch (ACTION_UP): 0:(1004.6339,551.9816)
+:Sending Trackball (ACTION_MOVE): 0:(3.0,2.0)
+:Sending Touch (ACTION_DOWN): 0:(190.0,1601.0)
+:Sending Touch (ACTION_UP): 0:(181.87152,1575.4791)
+:Sending Touch (ACTION_DOWN): 0:(1029.0,172.0)
+:Sending Touch (ACTION_UP): 0:(1023.6352,172.13712)
+:Sending Touch (ACTION_DOWN): 0:(723.0,465.0)
+:Sending Touch (ACTION_UP): 0:(792.98804,423.29)
+:Sending Trackball (ACTION_MOVE): 0:(2.0,-2.0)
+:Sending Touch (ACTION_DOWN): 0:(793.0,1632.0)
+:Sending Touch (ACTION_UP): 0:(807.8666,1632.9956)
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.evancharlton.mileage/.Mileage;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.evancharlton.mileage/.Mileage } in package com.evancharlton.mileage
+:Sending Touch (ACTION_DOWN): 0:(840.0,915.0)
+:Sending Touch (ACTION_UP): 0:(840.07404,873.6989)
+:Sending Touch (ACTION_DOWN): 0:(23.0,258.0)
+:Sending Touch (ACTION_UP): 0:(34.438972,261.7101)
+:Sending Touch (ACTION_DOWN): 0:(816.0,1303.0)
+:Sending Touch (ACTION_UP): 0:(817.68475,1302.5273)
+:Sending Trackball (ACTION_MOVE): 0:(2.0,3.0)
+    // Allowing start of Intent { cmp=com.evancharlton.mileage/.FieldActivity } in package com.evancharlton.mileage
+    // Injection Failed
+:Sending Touch (ACTION_DOWN): 0:(970.0,1439.0)
+Events injected: 500
+:Sending rotation degree=0, persist=false
+:Dropped: keys=2 pointers=0 trackballs=0 flips=2 rotations=0
+## Network stats: elapsed time=3923ms (0ms mobile, 0ms wifi, 3923ms not connected)
+// Monkey finished

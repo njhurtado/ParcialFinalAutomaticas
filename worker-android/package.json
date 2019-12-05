@@ -1,0 +1,29 @@
+{
+  "name": "worker-android",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.547.0",
+    "body-parser": "^1.19.0",
+    "connect-multiparty": "^2.1.0",
+    "express": "^3.4.1",
+    "fs": "0.0.1-security",
+    "fs-extra": "^8.1.0",
+    "ls": "^0.2.1",
+    "mongoose": "^5.6.11",
+    "node-cron": "^1.2.1",
+    "node-mailer": "^0.1.1",
+    "nodemailer": "^4.6.5",
+    "rimraf": "^3.0.0",
+    "shelljs": "^0.8.2",
+    "yargs": "^14.2.0"
+  }
+}

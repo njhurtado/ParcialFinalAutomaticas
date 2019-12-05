@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Random</title>
+<style>
+#list  p {
+    font: arial;
+    font-size: 14px;
+    background-color: yellow ;
+	left: 50px;
+}
+  </style> 
+			 <script src="https://code.jquery.com/jquery-3.4.1.js" ></script>
+ 
+</head>
+<body> 
+<b>Reportes:</b>
+<p id="pFrameFile"></p>
+<div id="list" >
+  <p><iframe  frameborder="1" height="500" id="iFrameFile"
+      width="100%"></iframe></p>
+</div> 
+<script>
+$.urlParam = function(name){
+    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+    return results[1] || 0;
+}
+   //document.getElementById("iFrameFile").setAttribute("src",$.urlParam('file'));   
+   $(document).load($.urlParam('file'), function(responseTxt, statusTxt, xhr){   
+    var myFrame = $("#iFrameFile").contents().find('body'); 
+                var textareaValue = responseTxt.replace(/\n/gi, "</br/>"); 
+                myFrame.html(textareaValue); 
+  });
+</script> 
+</body>
+</html>
