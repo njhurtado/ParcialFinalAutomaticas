@@ -28,20 +28,14 @@ openEmulator(_sdkAndroidHome+'/tools/emulator '+_EmulatorAvd+' -port 5556 -no-bo
     }).  then( async func=>{
      // await  process.chdir(_pathMutApk);   
        console.log("execShellCommand--1->"+_pathMutApk);
-       return execShellCommand('calabash-android resign mutants/com.evancharlton.mileage-mutant50/*-aligned-debugSigned.apk'); 
-      }).
-      
-      then( async func=>{
-        // await  process.chdir(_pathMutApk);   
-          console.log("execShellCommand--2->"+_pathMutApk);
-          return execShellCommand(_sdkAndroidHome+'/platform-tools/adb -s emulator-5556 install -r mutants/com.evancharlton.mileage-mutant50/*-aligned-debugSigned.apk'); 
-         }).
+       return execShellCommand('calabash-android resign com.evancharlton.mileage.apk'); 
+      }).      
       then( async func=>{
        await sleep(9000) 
        //await  process.chdir(_pathMutApk);    
        console.log("execShellCommand--3->"+func);
        //return ;
-       return execShellCommand('calabash-android run mutants/com.evancharlton.mileage-mutant50/*-aligned-debugSigned.apk'); 
+       return execShellCommand('calabash-android run com.evancharlton.mileage.apk'); 
       })
      .then( async func=>{
       console.log("execShellCommand ---4>"+func);
