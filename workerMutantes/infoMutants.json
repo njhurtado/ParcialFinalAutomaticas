@@ -1,0 +1,34 @@
+[
+  {
+    "_pathAPK":"mutants/com.evancharlton.mileage-mutant1/com.evancharlton.mileage_3110-aligned-debugSigned.apk",
+    "_pkgAPK":"com.evancharlton.mileage",
+    "seed":"12345",
+    "events":"2000",
+    "nomReport":"mutant1"
+  }
+  ,
+  {
+    "_pathAPK":"mutants/com.evancharlton.mileage-mutant2/com.evancharlton.mileage_3110-aligned-debugSigned.apk",
+    "_pkgAPK":"com.evancharlton.mileage",
+    "seed":"12345",
+    "events":"2000",
+    "nomReport":"mutant2"
+  }
+  ,
+  {
+    "_pathAPK":"mutants/com.evancharlton.mileage-mutant3/com.evancharlton.mileage_3110-aligned-debugSigned.apk",
+    "_pkgAPK":"com.evancharlton.mileage",
+    "seed":"12345",
+    "events":"2000",
+    "nomReport":"mutant3"
+  }
+  ,
+  {
+    "_pathAPK":"mutants/com.evancharlton.mileage-mutant4/com.evancharlton.mileage_3110-aligned-debugSigned.apk",
+    "_pkgAPK":"com.evancharlton.mileage",
+    "seed":"12345",
+    "events":"2000",
+    "nomReport":"mutant4"
+  }
+]
+  

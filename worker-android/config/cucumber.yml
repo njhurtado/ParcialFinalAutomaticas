@@ -1,0 +1,2 @@
+ 
+android: --tags @android --format pretty --format html --out report.html

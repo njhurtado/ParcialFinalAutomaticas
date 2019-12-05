@@ -16,7 +16,7 @@ var _appGlobal={
 
 var _numMut=5;
 var _sdkAndroidHome='/home/eanunezt/Android/Sdk';
-var _EmulatorAvd='@Nexus_5X_PLAY_64';
+var _EmulatorAvd='@Pixel_2_API_27';
 var _dir=__dirname;
 var _pathSript="features";
 var _nomReport='result';

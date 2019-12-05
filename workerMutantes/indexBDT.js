@@ -35,7 +35,7 @@ openEmulator(_sdkAndroidHome+'/tools/emulator '+_EmulatorAvd+' -port 5556 -no-bo
        //await  process.chdir(_pathMutApk);    
        console.log("execShellCommand--3->"+func);
        //return ;
-       return execShellCommand('calabash-android run com.evancharlton.mileage.apk -p android'); 
+       return execShellCommand('calabash-android run com.evancharlton.mileage.apk'); 
       })
      .then( async func=>{
       console.log("execShellCommand ---4>"+func);
