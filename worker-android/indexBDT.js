@@ -31,11 +31,25 @@ openEmulator(_sdkAndroidHome+'/tools/emulator '+_EmulatorAvd+' -port 5556 -no-bo
        return execShellCommand('calabash-android resign com.evancharlton.mileage.apk'); 
       }).*/      
       then( async func=>{
-       await sleep(9000) 
+       //await sleep(9000) 
        //await  process.chdir(_pathMutApk);    
-       console.log("execShellCommand--3->"+func);
-       //return ;
-       return execShellCommand('calabash-android run com.evancharlton.mileage.apk -p android'); 
+       console.log("execShellCommand--3->"+func);     
+       var mut=1;
+       var mut_max=5;
+
+       while (mut<=mut_max) {
+         //execShellCommand('calabash-android run mutants/com.evancharlton.mileage-mutant'+mut+'/*aligned-debugSigned.apk -p android')
+        await execShellCommand('calabash-android run com.evancharlton.mileage.apk -p android')
+        . then (r=>{
+
+          mut=mut+1;
+        });
+        console.log("mut->"+mut);
+       }
+      
+       return new Promise(resolve=>{
+        resolve('ok');})
+
       })
      .then( async func=>{
       console.log("execShellCommand ---4>"+func);
