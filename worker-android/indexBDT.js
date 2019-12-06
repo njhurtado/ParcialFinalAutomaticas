@@ -1,6 +1,7 @@
 const fs = require("fs");
 const fsExtra = require('fs-extra');
 let shell = require("shelljs");
+const vrt = require('./manejador-vrt.js');
 const { exec,execSync } = require('child_process');
 const cron = require("node-cron");
 const express = require("express");
@@ -16,6 +17,11 @@ var _dir=__dirname;
 var _pathSript="features";
 const rm = require('rimraf');
 
+var configVrt = [
+  { "before": "before1.png", "after": "screenshot_0.png", "result": "result1.png" },
+  { "before": "before2.png", "after": "screenshot_1.png", "result": "result2.png" },
+  { "before": "before3.png", "after": "screenshot_2.png", "result": "result3.png" }
+]
 
 
 Execution = require('./models/execution.model.js');
@@ -57,6 +63,12 @@ openEmulator(_sdkAndroidHome+'/tools/emulator '+_EmulatorAvd+' -port 5556 -no-bo
         . then (r=>{
           manageFiles(mut);
           mut=mut+1;
+
+          //genera el reporte de VRT
+          let rutaReportes = "./";
+          vrt.generarReporteVrt(configVrt, rutaReportes, rutaReportes, stderr);
+          console.log("Genera reporte VRT" );
+          
         });
         console.log("run mut->"+mut);
        }
@@ -104,7 +116,7 @@ async function  manageFiles(mut){
   console.log('Creando Reportes')
   fs.mkdirSync('./reports/mutant'+mut, { recursive: true });
 
-  var pathCp='mv *.png report.html ./reports/mutant'+mut+'/' ;
+  var pathCp='mv *.png report.html vrt.html ./reports/mutant'+mut+'/' ;
 	console.log("pathCp ->" + pathCp);
  code = await execSync(pathCp);
   console.log(code);
