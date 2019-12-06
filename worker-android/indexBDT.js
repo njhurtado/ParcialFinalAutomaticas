@@ -10,7 +10,7 @@ const dbConfig = require('./config/database.config.js');
 const mongoose = require('mongoose');
 var _pkgAPK="com.evancharlton.mileage";
 var _numMut=5;
-var _sdkAndroidHome='/home/njhurtado/Android/Sdk';
+var _sdkAndroidHome='/home/eanunezt/Android/Sdk';
 var _EmulatorAvd='@Pixel_2_API_27';
 var _pathMutApk='./mutants/'+_pkgAPK+'-mutant5';
 var _dir=__dirname;
@@ -42,7 +42,7 @@ openEmulator(_sdkAndroidHome+'/tools/emulator '+_EmulatorAvd+' -port 5556 -no-bo
        //await  process.chdir(_pathMutApk);    
        console.log("execShellCommand--3->"+func);     
        var mut=1;
-       var mut_max=20;
+       var mut_max=1;
 
 
        while (mut<=mut_max) {
@@ -55,20 +55,20 @@ openEmulator(_sdkAndroidHome+'/tools/emulator '+_EmulatorAvd+' -port 5556 -no-bo
        }
 
         mut=1;
-        mut_max=20;
+        mut_max=1;
 
        while (mut<=mut_max) {
         await execShellCommand('calabash-android run ./mutants/com.evancharlton.mileage-mutant'+mut+'/*aligned-debugSigned.apk -p android')
         //await execShellCommand('calabash-android run com.evancharlton.mileage.apk -p android')
-        . then (r=>{
-          manageFiles(mut);
-          mut=mut+1;
+        . then ((r,stderr)=>{
+         // manageFiles(mut);
+         
 
           //genera el reporte de VRT
-          let rutaReportes = "./";
-          vrt.generarReporteVrt(configVrt, rutaReportes, rutaReportes, stderr);
-          console.log("Genera reporte VRT" );
-          
+         
+          manageFiles(mut,stderr);
+          mut=mut+1;
+          console.log("Genera reporte VRT" );          
         });
         console.log("run mut->"+mut);
        }
@@ -112,18 +112,24 @@ mongoose.connect(dbConfig.url, {
     process.exit();
 });
 
-async function  manageFiles(mut){
+async function  manageFiles(mut,stderr){
   console.log('Creando Reportes')
   fs.mkdirSync('./reports/mutant'+mut, { recursive: true });
+  var pathCp='mv *_0.png *_1.png  *_2.png report.html ./reports/mutant'+mut+'/' ;//vrt.html 
+  var pathCp2='cp ./base/*.png ./reports/mutant'+mut+'/' ;
+  console.log("pathCp ->" + pathCp);
+  code = await execSync(pathCp);
+  code = await execSync(pathCp2);
 
-  var pathCp='mv *.png report.html vrt.html ./reports/mutant'+mut+'/' ;
-	console.log("pathCp ->" + pathCp);
- code = await execSync(pathCp);
   console.log(code);
+  let rutaReportes = './';
+  vrt.generarReporteVrt(configVrt, './', rutaReportes, stderr);
 
  await  removeFiles('report.html');
- await  removeFiles('*.png');
+ //await  removeFiles('*.png');
   }
+
+  
 
  async function  openEmulator(emulatorPath){
     await exec(_sdkAndroidHome+'/platform-tools/adb -s emulator-5556 emu kill',(error, stdout, stderr) => {

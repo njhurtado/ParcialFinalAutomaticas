@@ -22,6 +22,7 @@
     "node-cron": "^1.2.1",
     "node-mailer": "^0.1.1",
     "nodemailer": "^4.6.5",
+    "resemblejs": "^3.2.3",
     "rimraf": "^3.0.0",
     "shelljs": "^0.8.2",
     "yargs": "^14.2.0"
