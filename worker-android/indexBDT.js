@@ -36,16 +36,29 @@ openEmulator(_sdkAndroidHome+'/tools/emulator '+_EmulatorAvd+' -port 5556 -no-bo
        //await  process.chdir(_pathMutApk);    
        console.log("execShellCommand--3->"+func);     
        var mut=1;
-       var mut_max=5;
+       var mut_max=20;
+
 
        while (mut<=mut_max) {
-         //execShellCommand('calabash-android run mutants/com.evancharlton.mileage-mutant'+mut+'/*aligned-debugSigned.apk -p android')
-        await execShellCommand('calabash-android run com.evancharlton.mileage.apk -p android')
+        await execShellCommand('calabash-android resign ./mutants/com.evancharlton.mileage-mutant'+mut+'/*aligned-debugSigned.apk')
+        //await execShellCommand('calabash-android run com.evancharlton.mileage.apk -p android')
+        . then (r=>{         
+          mut=mut+1;
+        });
+        console.log("resign mut->"+mut);
+       }
+
+        mut=1;
+        mut_max=20;
+
+       while (mut<=mut_max) {
+        await execShellCommand('calabash-android run ./mutants/com.evancharlton.mileage-mutant'+mut+'/*aligned-debugSigned.apk -p android')
+        //await execShellCommand('calabash-android run com.evancharlton.mileage.apk -p android')
         . then (r=>{
           manageFiles(mut);
           mut=mut+1;
         });
-        console.log("mut->"+mut);
+        console.log("run mut->"+mut);
        }
       
        return new Promise(resolve=>{
