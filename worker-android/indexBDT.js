@@ -18,9 +18,9 @@ var _pathSript="features";
 const rm = require('rimraf');
 
 var configVrt = [
-  { "before": "before1.png", "after": "screenshot_0.png", "result": "result1.png" },
-  { "before": "before2.png", "after": "screenshot_1.png", "result": "result2.png" },
-  { "before": "before3.png", "after": "screenshot_2.png", "result": "result3.png" }
+  { "before": "../base/before1.png", "after": "screenshot_0.png", "result": "result1.png" },
+  { "before": "../base/before2.png", "after": "screenshot_1.png", "result": "result2.png" },
+  { "before": "../base/before3.png", "after": "screenshot_2.png", "result": "result3.png" }
 ]
 
 
@@ -41,8 +41,11 @@ openEmulator(_sdkAndroidHome+'/tools/emulator '+_EmulatorAvd+' -port 5556 -no-bo
        //await sleep(9000) 
        //await  process.chdir(_pathMutApk);    
        console.log("execShellCommand--3->"+func);     
-       var mut=1;
-       var mut_max=1;
+        var range_init=5;
+        var range_end=6;
+
+       var mut=range_init;
+       var mut_max=range_end;
 
 
        while (mut<=mut_max) {
@@ -51,28 +54,44 @@ openEmulator(_sdkAndroidHome+'/tools/emulator '+_EmulatorAvd+' -port 5556 -no-bo
         . then (r=>{         
           mut=mut+1;
         });
-        console.log("resign mut->"+mut);
+        console.log("resign mut->"+(mut-1));
        }
 
-        mut=1;
-        mut_max=1;
+        mut=range_init;
+        mut_max=range_end;
 
        while (mut<=mut_max) {
         await execShellCommand('calabash-android run ./mutants/com.evancharlton.mileage-mutant'+mut+'/*aligned-debugSigned.apk -p android')
         //await execShellCommand('calabash-android run com.evancharlton.mileage.apk -p android')
         . then ((r,stderr)=>{
-         // manageFiles(mut);
          
-
-          //genera el reporte de VRT
-         
-          manageFiles(mut,stderr);
+          manageFiles(mut);
           mut=mut+1;
-          console.log("Genera reporte VRT" );          
+           
         });
-        console.log("run mut->"+mut);
+        console.log("run mut->"+(mut-1));
        }
-      
+
+       mut=range_init;
+        mut_max=range_end;
+
+       while (mut<=mut_max) {
+      var stderr;
+        let rutaReportes = './';
+        await process.chdir(__dirname);
+       // await  removeFiles('report.html');
+       // await  removeFiles('*.png');
+        await process.chdir('./reports/mutant'+mut+'/');
+
+        await  vrt.generarReporteVrt(configVrt, '../base/', rutaReportes, stderr).then(r=>{
+          mut=mut+1;
+          console.log("Genera reporte VRT" );         
+        })       
+        console.log("run vrt->"+(mut-1));      
+       }
+
+
+  
        return new Promise(resolve=>{
         resolve('ok');})
 
@@ -90,7 +109,7 @@ openEmulator(_sdkAndroidHome+'/tools/emulator '+_EmulatorAvd+' -port 5556 -no-bo
       console.log("okkkkk"); 
      })  
      .catch(err => {
-     
+      execShellCommand(_sdkAndroidHome+'/platform-tools/adb -s emulator-5556 emu kill');   
       console.log('Could not close process. Exiting now...', err);
       process.exit();
   });
@@ -113,20 +132,14 @@ mongoose.connect(dbConfig.url, {
 });
 
 async function  manageFiles(mut,stderr){
-  console.log('Creando Reportes')
+  console.log('manageFiles::::')
   fs.mkdirSync('./reports/mutant'+mut, { recursive: true });
-  var pathCp='mv *_0.png *_1.png  *_2.png report.html ./reports/mutant'+mut+'/' ;//vrt.html 
-  var pathCp2='cp ./base/*.png ./reports/mutant'+mut+'/' ;
+  var pathCp='cp *_0.png *_1.png  *_2.png report.html ./reports/mutant'+mut+'/' ;//vrt.html 
+  //var pathCp2='cp ./base/*.png ./reports/mutant'+mut+'/' ;
   console.log("pathCp ->" + pathCp);
-  code = await execSync(pathCp);
-  code = await execSync(pathCp2);
+  var code = await execSync(pathCp);
+  //code = await execSync(pathCp2);
 
-  console.log(code);
-  let rutaReportes = './';
-  vrt.generarReporteVrt(configVrt, './', rutaReportes, stderr);
-
- await  removeFiles('report.html');
- //await  removeFiles('*.png');
   }
 
   
