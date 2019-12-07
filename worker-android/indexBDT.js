@@ -41,8 +41,8 @@ openEmulator(_sdkAndroidHome+'/tools/emulator '+_EmulatorAvd+' -port 5556 -no-bo
        //await sleep(9000) 
        //await  process.chdir(_pathMutApk);    
        console.log("execShellCommand--3->"+func);     
-        var range_init=5;
-        var range_end=6;
+        var range_init=1;
+        var range_end=2000;
 
        var mut=range_init;
        var mut_max=range_end;
